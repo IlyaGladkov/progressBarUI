@@ -15,7 +15,7 @@
     flex-wrap: wrap;
 }
 
-@media screen and (max-width: 400px) {
+@media (max-width: 400px) {
     .viewProgressBar {
         flex-direction: column;
         height: 100vh;
