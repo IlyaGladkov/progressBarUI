@@ -10,24 +10,28 @@
 
 <body>
     <div class="viewProgressBar">
-        <div class="pview"></div>
+        <div class="pview">
+            <progress-bar value="0"></progress-bar>
+        </div>
         <div class="control">
-            <label id="progress">
-                <input type="text">
+            <label>
+                <input class="progressValue" type="number" value="0" min="0" max="100">
                 Value
             </label>
             <label class="switch">
                 Animate
-                <input type="checkbox">
+                <input id="animateSwitch" type="checkbox">
                 <span class="slider round"></span>
             </label>
             <label class="switch">
                 Hide
-                <input type="checkbox">
+                <input id="hideSwitch" type="checkbox">
                 <span class="slider round"></span>
             </label>
         </div>
     </div>
+    <script src="./src/progress-bar.js"></script>
+    <script src="./src/main.js"></script>
 </body>
 
 </html>
