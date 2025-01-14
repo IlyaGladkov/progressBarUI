@@ -27,10 +27,10 @@ class ProgressBar extends HTMLElement {
                 content: '';
                 display: block;
                 position: absolute;
-                top: 20px;
-                right: 20px;
-                bottom: 20px;
-                left: 20px;
+                top: 10px;
+                right: 10px;
+                bottom: 10px;
+                left: 10px;
                 border-radius: 50%;
                 background-color: white;
                 z-index: 3;
