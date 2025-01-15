@@ -22,13 +22,6 @@
     flex-wrap: wrap;
 }
 
-@media (max-width: 400px) {
-    .viewProgressBar {
-        flex-direction: column;
-        height: 100vh;
-    }
-}
-
 .pview {
     display: flex;
     justify-content: center;
@@ -120,4 +113,15 @@ input:checked+.slider:before {
 
 .slider.round:before {
     border-radius: 50%;
+}
+
+@media (max-width: 400px) {
+    .viewProgressBar {
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    .control {
+        margin: 0 auto;
+    }
 }
