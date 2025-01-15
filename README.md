@@ -20,3 +20,5 @@
 * HTML.
 
 ## Deploy
+
+Link - [ilyagladkov.github.io/progressBarUI/](https://ilyagladkov.github.io/progressBarUI/)

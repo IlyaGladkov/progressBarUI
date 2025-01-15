@@ -18,7 +18,7 @@ class ProgressBar extends HTMLElement {
                 width: ${this.getAttribute('size') || '150px'};
                 height: ${this.getAttribute('size') || '150px'};
                 border-radius: 50%;
-                background-color: ${this.getAttribute('bgcolor') || '#2196F3'};
+                background-color: ${this.getAttribute('bgcolor') || '#005dff'};
                 position: relative;
                 overflow: hidden;
             }
@@ -81,7 +81,7 @@ class ProgressBar extends HTMLElement {
             }
 
             .progressbar.over_50 .piece.left::before {
-                background-color: ${this.getAttribute('bgcolor') || '#2196F3'};
+                background-color: ${this.getAttribute('bgcolor') || '#005dff'};
             }
         `
         shadow.appendChild(styleTag)
