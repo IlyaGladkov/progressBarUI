@@ -1,7 +1,6 @@
 class ProgressBar extends HTMLElement {
     constructor() {
         super()
-
         const shadow = this.attachShadow({mode: 'open'})
         const diagram = document.createElement('div')
 
@@ -107,7 +106,10 @@ class ProgressBar extends HTMLElement {
     }
 
     attributeChangedCallback(name, oldval, newval) {
-        if (name === 'value') this.setProgressByAttribute()
+        if (name === 'value') {
+            if (newval > 100) this.setAttribute('value', 100)
+            this.setProgressByAttribute()
+        }
     }
 }
 

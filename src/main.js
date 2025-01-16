@@ -8,18 +8,17 @@ progressValueInput.addEventListener('change', () => {
     progressBar.setAttribute('value', progressValueInput.value)
 })
 
-var timer
+let timer
+let deg = 0
 animateSwitch.addEventListener('change', () => {
+    let max = 360
     if (animateSwitch.checked) {
-        let value = 0
         timer = setInterval(() => {
-            progressBar.setAttribute('value', value)
-            value++
-            if (value === 100) value = 0
-        }, 30)
+            progressBar.style.transform = `rotate(${deg++}deg)`
+            if (deg >= max) deg = 0
+        }, 5)
     } else {
         clearInterval(timer)
-        progressBar.setAttribute('value', 0)
     }
 })
 
