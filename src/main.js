@@ -12,24 +12,10 @@ progressValueInput.addEventListener('change', () => {
     progressBar.setAttribute('value', progressValueInput.value)
 })
 
-let timer
-let deg = 0
 animateSwitch.addEventListener('change', () => {
-    let max = 360
-    if (animateSwitch.checked) {
-        timer = setInterval(() => {
-            progressBar.style.transform = `rotate(${deg++}deg)`
-            if (deg >= max) deg = 0
-        }, 5)
-    } else {
-        clearInterval(timer)
-    }
+    progressBar.toggleAttribute('active')
 })
 
 hideSwitch.addEventListener('change', () => {
-    if (hideSwitch.checked) {
-        progressBar.hidden = true
-    } else {
-        progressBar.hidden = false      
-    }
+    progressBar.toggleAttribute('hidden')
 })

@@ -1,6 +1,10 @@
 class ProgressBar extends HTMLElement {
     constructor() {
         super()
+
+        this.timer
+        this.deg = 0
+
         const shadow = this.attachShadow({mode: 'open'})
         const diagram = document.createElement('div')
 
@@ -88,9 +92,8 @@ class ProgressBar extends HTMLElement {
 
     setProgressByAttribute() {
         const progressElements = this.shadowRoot.querySelectorAll('.progressbar')
-        const progressBar = document.querySelector('progress-bar')
         progressElements.forEach(elem => {
-            const value = progressBar.getAttribute('value')
+            const value = this.getAttribute('value')
             if(value >= 50){
                 elem.classList.add('over_50')
             }else{
@@ -101,14 +104,32 @@ class ProgressBar extends HTMLElement {
         })
     }
 
+    setActivity(value) {
+        let max = 360
+        if (value != null) {
+            this.timer = setInterval(() => {
+                this.style.transform = `rotate(${this.deg++}deg)`
+                if (this.deg >= max) this.deg = 0
+            }, 5)
+        } else {
+            clearInterval(this.timer)
+        }
+    }
+
     static get observedAttributes() {
-        return ['value'];
+        return ['value', 'active'];
     }
 
     attributeChangedCallback(name, oldval, newval) {
-        if (name === 'value') {
-            if (newval > 100) this.setAttribute('value', 100)
-            this.setProgressByAttribute()
+        switch(name) {
+            case 'value':
+                if (newval > 100) this.setAttribute('value', 100)
+                this.setProgressByAttribute()
+                break
+            case 'active':
+                this.setActivity(newval)
+                break
+            default: console.log('error')
         }
     }
 }
